@@ -1,5 +1,6 @@
 #!/bin/sh
 
+#Esto esta probado para Ubuntu 24.04, otras versiones... ninguna garantia
 sudo apt install git bc bison flex libssl-dev make libc6-dev libncurses5-dev \
          crossbuild-essential-arm64 gawk texinfo
 

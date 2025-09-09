@@ -12,10 +12,13 @@ rm -rf $(pwd)/RPI/gcc/*
 mkdir -p $(pwd)/RPI/gcc/deploy
 
 #Bajamos el codigo fuente
-wget https://ftp.gnu.org/gnu/gcc/gcc-11.4.0/gcc-11.4.0.tar.xz --directory-prefix=$(pwd)/RPI/gcc
+#La pagina de ftp.gnu.org es muy lenta, usamos universidad de wayne como mirror
+#wget https://ftp.gnu.org/gnu/gcc/gcc-13.4.0/gcc-13.4.0.tar.xz --directory-prefix=$(pwd)/RPI/gcc
+wget https://ftp.wayne.edu/gnu/gcc/gcc-13.4.0/gcc-13.4.0.tar.xz --directory-prefix=$(pwd)/RPI/gcc
+
 cd $(pwd)/RPI/gcc
-tar xvf gcc-11.4.0.tar.xz
-cd gcc-11.4.0
+tar xvf gcc-13.4.0.tar.xz
+cd gcc-13.4.0
 ./contrib/download_prerequisites
 ./configure --target=aarch64-linux-gnu --host=aarch64-linux-gnu --disable-nls --disable-multilib --enable-languages=c,c++  
 

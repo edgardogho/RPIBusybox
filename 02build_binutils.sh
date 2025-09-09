@@ -14,13 +14,16 @@ mkdir -p $(pwd)/RPI/binutils/build
 mkdir -p $(pwd)/RPI/binutils/deploy
 
 #Bajamos el codigo fuente
-wget https://ftp.gnu.org/gnu/binutils/binutils-2.43.tar.xz --directory-prefix=$(pwd)/RPI/binutils
+#El server ftp.gnu.org es terriblemente lento, usamos un mirror..
+#wget https://ftp.gnu.org/gnu/binutils/binutils-2.45.tar.xz --directory-prefix=$(pwd)/RPI/binutils
+wget https://ftp.wayne.edu/gnu/binutils/binutils-2.45.tar.xz --directory-prefix=$(pwd)/RPI/binutils
+
 cd $(pwd)/RPI/binutils
-tar xvf binutils-2.43.tar.xz
+tar xvf binutils-2.45.tar.xz
 cd build
 
 #cd build
-../binutils-2.43/configure --target=aarch64-linux-gnu --host=aarch64-linux-gnu --bindir=/usr/bin
+../binutils-2.45/configure --target=aarch64-linux-gnu --host=aarch64-linux-gnu --bindir=/usr/bin
 echo "Revisar que el configure haya terminado bien"
 echo "Si hubo errores usar Ctrl+C para cancelar "
 echo "Sino cualquier tecla para continuar"

@@ -14,6 +14,7 @@ cd $(pwd)/RPI/kernel
 git clone --depth=1 https://github.com/raspberrypi/linux
 
 echo "La compilacion del kernel depende del chip"
+echo "Si es RPI5 , se compila de una forma, sino de otra"
 echo "Ingrese el numero de RPI, ej: para RPI 5 ingrese 5 y enter"
 read x
 

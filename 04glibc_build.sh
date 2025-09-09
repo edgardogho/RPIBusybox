@@ -15,13 +15,17 @@ mkdir -p $(pwd)/RPI/glibc/deploy
 HEADERS=$(pwd)/RPI/part/rootfs/usr/include
 
 #Bajamos el codigo fuente
-wget https://ftp.gnu.org/gnu/glibc/glibc-2.40.tar.xz --directory-prefix=$(pwd)/RPI/glibc
+#La pagina de ftp.gnu.org es muy lenta, usamos wayne university como mirror
+#wget https://ftp.gnu.org/gnu/glibc/glibc-2.42.tar.xz --directory-prefix=$(pwd)/RPI/glibc
+wget https://ftp.wayne.edu/gnu/glibc/glibc-2.42.tar.xz --directory-prefix=$(pwd)/RPI/glibc
+
+
 cd $(pwd)/RPI/glibc
-tar xvf glibc-2.40.tar.xz
+tar xvf glibc-2.42.tar.xz
 
 
 cd build
-../glibc-2.40/configure --target=aarch64-linux-gnu --host=aarch64-linux-gnu --bindir=/usr/bin --enable-add-ons \
+../glibc-2.42/configure --target=aarch64-linux-gnu --host=aarch64-linux-gnu --bindir=/usr/bin --enable-add-ons \
                         --with-headers=$HEADERS  --enable-kernel=4.14  --prefix=/ --includedir=/usr/include
 echo "Revisar que el configure haya terminado bien"
 echo "Si hubo errores usar Ctrl+C para cancelar "
